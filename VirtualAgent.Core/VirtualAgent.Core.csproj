@@ -85,7 +85,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Greeting\GreetingAction.cs" />
+    <Compile Include="Actions\None\NoneAction.cs" />
     <Compile Include="Dialogs\AuthenticationDialog.cs" />
+    <Compile Include="Dialogs\LuisDialog.cs" />
+    <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="WebApiContracts\Authentication\AuthenticationInfo.cs" />
@@ -95,5 +99,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualAgent.LUIS.ActionBinding\VirtualAgent.LUIS.ActionBinding.csproj">
+      <Project>{E40E7ED7-3173-48C2-BFD7-578DC84668D4}</Project>
+      <Name>VirtualAgent.LUIS.ActionBinding</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -146,6 +146,10 @@
       <Project>{c7d64511-d9bc-4416-8bec-09347d1620e3}</Project>
       <Name>VirtualAgent.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VirtualAgent.LUIS.ActionBinding\VirtualAgent.LUIS.ActionBinding.csproj">
+      <Project>{e40e7ed7-3173-48c2-bfd7-578dc84668d4}</Project>
+      <Name>VirtualAgent.LUIS.ActionBinding</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

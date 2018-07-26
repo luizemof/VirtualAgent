@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotApplication", "BotApplic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualAgent.WebApi", "VirtualAgent.WebApi\VirtualAgent.WebApi.csproj", "{9BB0F210-F10C-4BF0-9F9E-A0A28098BE9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualAgent.LUIS.ActionBinding", "VirtualAgent.LUIS.ActionBinding\VirtualAgent.LUIS.ActionBinding.csproj", "{E40E7ED7-3173-48C2-BFD7-578DC84668D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualAgent.Shared", "VirtualAgent.Shared\VirtualAgent.Shared.csproj", "{0ABA465B-6C9B-4F2A-B6D8-1891313D3A43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{9BB0F210-F10C-4BF0-9F9E-A0A28098BE9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BB0F210-F10C-4BF0-9F9E-A0A28098BE9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BB0F210-F10C-4BF0-9F9E-A0A28098BE9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E40E7ED7-3173-48C2-BFD7-578DC84668D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E40E7ED7-3173-48C2-BFD7-578DC84668D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E40E7ED7-3173-48C2-BFD7-578DC84668D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E40E7ED7-3173-48C2-BFD7-578DC84668D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ABA465B-6C9B-4F2A-B6D8-1891313D3A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ABA465B-6C9B-4F2A-B6D8-1891313D3A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ABA465B-6C9B-4F2A-B6D8-1891313D3A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ABA465B-6C9B-4F2A-B6D8-1891313D3A43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

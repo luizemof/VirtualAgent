@@ -1,6 +1,7 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
 using Newtonsoft.Json;
 using System;
+using System.Configuration;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,7 +15,10 @@ namespace VirtualAgent.WebApi.Controllers
 {
 	public class MessagesController : ApiController
     {
-		[HttpPost]
+        private const string LUIS_MODEL_ID_KEY = "LUIS_MODEL_ID";
+        private const string LUIS_SUBSCRIPTION_KEY_KEY = "LUIS_SUBSCRIPTION_KEY";
+
+        [HttpPost]
 		public async Task<HttpResponseMessage> Post()
 		{
 			try
@@ -28,6 +32,7 @@ namespace VirtualAgent.WebApi.Controllers
 				switch (result.Type)
 				{
 					case AuthenticationResultType.OK:
+                        await Conversation.SendAsync(messageModel.Activity, () => new RootDialog());
 						break;
 					case AuthenticationResultType.AskedForAuth:
 						await Conversation.SendAsync(messageModel.Activity, () => new AuthenticationDialog(result.Result));
