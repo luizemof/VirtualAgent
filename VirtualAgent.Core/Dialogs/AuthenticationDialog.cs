@@ -18,7 +18,13 @@ namespace VirtualAgent.Core.Dialogs
 			RedirectUrl = redirectUrl;
 		}
 
-		public async Task StartAsync(IDialogContext context)
+		public Task StartAsync(IDialogContext context)
+		{
+			context.Wait(SendCard);
+			return Task.CompletedTask;
+		}
+
+		private async Task SendCard(IDialogContext context, IAwaitable<object> result)
 		{
 			IMessageActivity messageActivity = context.MakeMessage();
 			ThumbnailCard thumbnailCard = new ThumbnailCard

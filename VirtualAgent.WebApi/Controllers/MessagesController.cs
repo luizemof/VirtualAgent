@@ -4,13 +4,11 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web.ApplicationServices;
 using System.Web.Http;
 using VirtualAgent.Core.Dialogs;
 using VirtualAgent.Core.Services;
 using VirtualAgent.Core.WebApiContracts.Authentication;
 using VirtualAgent.WebApi.Models;
-using CoreService = VirtualAgent.Core.Services;
 
 namespace VirtualAgent.WebApi.Controllers
 {
@@ -26,7 +24,7 @@ namespace VirtualAgent.WebApi.Controllers
 					throw new ArgumentException(nameof(body));
 
 				MessagesModel messageModel = JsonConvert.DeserializeObject<MessagesModel>(body);
-				AuthenticationResult result = new AuthService(messageModel.AuthenticationInfo, GetBaseUri("api/Authenticated").AbsolutePath).GetAuthenticationResult();
+				AuthenticationResult result = new AuthService(messageModel.AuthenticationInfo, GetBaseUri("api/Messages/Authenticated").AbsoluteUri).GetAuthenticationResult();
 				switch (result.Type)
 				{
 					case AuthenticationResultType.OK:
