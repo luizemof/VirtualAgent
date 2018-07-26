@@ -29,21 +29,9 @@ namespace VirtualAgent.WebApi.Controllers
 
 				MessagesModel messageModel = JsonConvert.DeserializeObject<MessagesModel>(body);
 				AuthenticationResult result = new AuthService(messageModel.AuthenticationInfo, GetBaseUri("api/Messages/Authenticated").AbsoluteUri).GetAuthenticationResult();
-				switch (result.Type)
-				{
-					case AuthenticationResultType.OK:
-                        await Conversation.SendAsync(messageModel.Activity, () => new RootDialog());
-						break;
-					case AuthenticationResultType.AskedForAuth:
-						await Conversation.SendAsync(messageModel.Activity, () => new AuthenticationDialog(result.Result));
-						break;
-					case AuthenticationResultType.Error:
-						break;
-					default:
-						break;
-				}
+                await Conversation.SendAsync(messageModel.Activity, () => new RootDialog(result));
 
-				return Request.CreateResponse(HttpStatusCode.Accepted);
+                return Request.CreateResponse(HttpStatusCode.OK);
 			}
 			catch (Exception e)
 			{

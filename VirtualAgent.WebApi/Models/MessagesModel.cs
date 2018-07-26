@@ -7,6 +7,7 @@ using VirtualAgent.Core.WebApiContracts.Authentication;
 
 namespace VirtualAgent.WebApi.Models
 {
+    [Serializable]
 	public class MessagesModel
 	{
 		public AuthenticationInfo AuthenticationInfo;

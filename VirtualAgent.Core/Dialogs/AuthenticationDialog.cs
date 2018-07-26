@@ -18,36 +18,31 @@ namespace VirtualAgent.Core.Dialogs
 			RedirectUrl = redirectUrl;
 		}
 
-		public Task StartAsync(IDialogContext context)
+		public async Task StartAsync(IDialogContext context)
 		{
-			context.Wait(SendCard);
-			return Task.CompletedTask;
-		}
+            IMessageActivity messageActivity = context.MakeMessage();
+            ThumbnailCard thumbnailCard = new ThumbnailCard
+            {
+                Title = $"Hello, please sign in Azure AD",
+                Subtitle = "Sign in with Azure \U0001F511",
+                Buttons = new List<CardAction>()
+                {
+                    new CardAction()
+                    {
+                        Value = $"{RedirectUrl}",
+                        Type = "signin",
+                        Title = "Sign In"
+                    }
+                },
+                Images = new List<CardImage>()
+                {
+                    new CardImage(url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ODtKlKkCOVqD4AYddU1uDSLOoikXTxWCv5Aiw282LIX1_nrlWQ")
+                }
+            };
 
-		private async Task SendCard(IDialogContext context, IAwaitable<object> result)
-		{
-			IMessageActivity messageActivity = context.MakeMessage();
-			ThumbnailCard thumbnailCard = new ThumbnailCard
-			{
-				Title = $"Hello, please sign in Azure AD",
-				Subtitle = "Sign in with Azure \U0001F511",
-				Buttons = new List<CardAction>()
-				{
-					new CardAction()
-					{
-						Value = $"{RedirectUrl}",
-						Type = "signin",
-						Title = "Sign In"
-					}
-				},
-				Images = new List<CardImage>()
-				{
-					new CardImage(url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ODtKlKkCOVqD4AYddU1uDSLOoikXTxWCv5Aiw282LIX1_nrlWQ")
-				}
-			};
-
-			messageActivity.Attachments = new List<Attachment>() { thumbnailCard.ToAttachment() };
-			await context.PostAsync(messageActivity);
-		}
+            messageActivity.Attachments = new List<Attachment>() { thumbnailCard.ToAttachment() };
+            await context.PostAsync(messageActivity);
+            context.Done("Ok");
+        }
 	}
 }

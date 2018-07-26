@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace VirtualAgent.Core.WebApiContracts.Authentication
 {
+    [Serializable]
 	public struct AuthenticationResult
 	{
 		public AuthenticationResultType Type;
 		public string Result;
 	}
 
-	public enum AuthenticationResultType
+    [Serializable]
+    public enum AuthenticationResultType
 	{
 		OK,
 		AskedForAuth,
